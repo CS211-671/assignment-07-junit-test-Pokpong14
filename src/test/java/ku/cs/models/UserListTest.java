@@ -35,8 +35,13 @@ class UserListTest {
     @DisplayName("User with correct password can login")
     public void testUserListShouldReturnObjectIfUsernameAndPasswordIsCorrect() {
         // TODO: add 3 users to UserList
+        UserList userList = new UserList();
+        userList.addUser("xxx","123");
+        userList.addUser("yyy","456");
+        userList.addUser("zzz","789");
 
         // TODO: call login() with correct username and password
+        userList.login("xxx","123");
 
         // TODO: assert that User object is found
         // assertEquals(expected, actual);
