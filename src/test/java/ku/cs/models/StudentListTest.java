@@ -13,7 +13,7 @@ class StudentListTest {
         StudentList list = new StudentList();
         list.addNewStudent("xxx","xxx");
         list.addNewStudent("yyy","yyy");
-        assertEquals(list.getStudents(),list.findStudentById("xxx"));
+        assertEquals(50,list.findStudentById("xxx"));
     }
 
     @Test
