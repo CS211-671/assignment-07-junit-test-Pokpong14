@@ -52,10 +52,11 @@ class UserListTest {
         userList2.addUser("zzz","789");
 
         // TODO: call login() with correct username and password
-        User actual = userList2.login("xxx","123");
+        User actual = userList2.login("yyy","456");
+        User expected = userList2.findUserByUsername("yyy");
 
         // TODO: assert that User object is found
-        //assertEquals( actual);
+        assertEquals( expected,actual);
     }
 
     @Test

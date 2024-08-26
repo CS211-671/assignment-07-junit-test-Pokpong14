@@ -30,26 +30,29 @@ public class UserList {
     //TODO: implements this method to change user's password to newPassword by verified oldPassword
     //TODO: return true if process is completed, otherwise return false
     public boolean changePassword(String username, String oldPassword, String newPassword) {
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                if (user.validatePassword(oldPassword)) {
-                    user.setPassword(newPassword);
-                }
+        boolean changed = false;
+        User exist = findUserByUsername(username);
+        if (exist != null) {
+            if (exist.validatePassword(oldPassword)) {
+                exist.setPassword(newPassword);
+                changed = true;
             }
-
         }
-        return Objects.equals(findUserByUsername(username).getPassword(), newPassword);
+        return changed;
     }
 
     //TODO: implements this method to find user in users with valid password
     //TODO: return User object if username and password is correct, otherwise return null
     public User login(String username, String password) {
-        for (User user : users){
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return user;
-            }
+        User exist = findUserByUsername(username);
+        if (exist != null) {
+            if (exist.getPassword().equals(password)) {
+                return exist;
+            } else if (!exist.getPassword().equals(password)) {
+                return null;
 
+            }
         }
-        return null;
+        return exist;
     }
 }

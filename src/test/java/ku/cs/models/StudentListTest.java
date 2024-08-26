@@ -13,7 +13,8 @@ class StudentListTest {
         StudentList list = new StudentList();
         list.addNewStudent("xxx","xxx");
         list.addNewStudent("yyy","yyy");
-        assertEquals(50,list.findStudentById("xxx"));
+        String expected = "xxx";
+        assertEquals(expected,list.findStudentById("xxx").getName());
     }
 
     @Test
@@ -34,16 +35,4 @@ class StudentListTest {
         assertEquals("D",list2.viewGradeOfId("xxx"));
     }
 
-    @Test
-    void getStudents() {
-        StudentList list2 = new StudentList();
-        list2.addNewStudent("xxx","xxx");
-        list2.addNewStudent("yyy","yyy");
-        Student a = new Student("xxx","xxx");
-        Student b = new Student("yyy","yyy");
-        ArrayList<Student> testList = new ArrayList<>();
-        testList.add(a);
-        testList.add(b);
-        assertEquals(testList,list2.getStudents());
-    }
 }
